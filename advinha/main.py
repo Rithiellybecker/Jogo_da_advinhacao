@@ -7,6 +7,7 @@ def jogar():
     numero_secreto = random.randint(1, 100)
     tentativas = 0
     limite_tentativas = 5
+    pontuacao = 0
 
     while tentativas < limite_tentativas:
         try:
@@ -32,8 +33,21 @@ def jogar():
             break
 
     else:
-        print(f"Acabaram as tentativas. O número era {numero_secreto}")
+        print(f"Acabaram as tentativas. O número era {numero_secreto}")        
+        
+        
+        if chute == numero_secreto:
+            if tentativas == 1:
+                pontuacao = 3                                                                                                                                                                                                                                                                                                   
+            elif tentativas == 2:
+                pontuacao = 2 
+            elif tentativas == 3:
+                pontuacao = 1 
+            elif tentativas == 4 or tentativas == 5: 
+                pontuacao = 0
 
+        print(f"Sua pontuação é: {pontuacao}")
+        
 while True:
     jogar()
     resposta = input("Deseja jogar novamente? (s/n): ").lower()
@@ -43,3 +57,5 @@ while True:
 
 if __name__ == "__main__":
     jogar()
+    
+    
